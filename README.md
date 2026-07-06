@@ -121,6 +121,18 @@ Use the preconfigured `Makefile` to quickly run commands:
     *   **Cause**: The local runtime template attempts to contact GCP services to resolve default credentials for Vertex AI.
     *   **Fix**: Ensure `GOOGLE_GENAI_USE_VERTEXAI=False` is set in your `.env` to run in local-only API key mode, which triggers our dummy credential mock automatically during local tests.
 
+## Assets
+
+### Project Cover Page Banner
+![Cover Page Banner](assets/cover_page_banner.png)
+
+### Workflow Architecture Diagram
+![Workflow Architecture Diagram](assets/architecture_diagram.png)
+
+## Demo Script
+
+A detailed presentation and spoken narration script for presenting the Commute Wizard agent is available at [DEMO_SCRIPT.txt](DEMO_SCRIPT.txt).
+
 ---
 
 ## Push to GitHub

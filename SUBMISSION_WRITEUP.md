@@ -1,5 +1,7 @@
 # Submission Write-Up: Commute Wizard
 
+![Cover Page Banner](assets/cover_page_banner.png)
+
 ## Problem Statement
 Daily commuting is full of unpredictability—ranging from unexpected road accidents and toll options to transit delays. Commuters need a tool that can dynamically analyze multiple options (driving, public transit, and safety checks) and offer integrated advice. Furthermore, because travel decisions can involve financial costs (tolls) or extreme time overheads, the agent needs a safe, deterministic execution structure with human oversight for critical actions.
 
@@ -8,27 +10,8 @@ Daily commuting is full of unpredictability—ranging from unexpected road accid
 ## Solution Architecture
 Commute Wizard uses the **ADK 2.0 Graph Workflow API** to route tasks securely through specialized sub-agents and gatekeeping nodes. Below is the solution's routing logic:
 
-```mermaid
-graph TD
-    START([Start / User Input]) --> SC[security_checkpoint]
-    
-    SC -->|SECURITY_EVENT / Flagged| SVH[security_violation_handler]
-    SC -->|DEFAULT_ROUTE / Clean| ORCH[orchestrator]
-    
-    subgraph Multi-Agent coordination
-        ORCH -->|AgentTool| TA[traffic_analyzer]
-        ORCH -->|AgentTool| TBA[transit_advisor]
-    end
-    
-    ORCH --> RR[route_router]
-    
-    RR -->|needs_approval| RV[route_verification<br>Human-in-the-Loop]
-    RR -->|auto_approved| FO[final_output]
-    
-    RV --> FO
-    SVH --> FO
-    FO --> END([End / Render Response])
-```
+![Workflow Architecture Diagram](assets/architecture_diagram.png)
+
 
 ---
 
